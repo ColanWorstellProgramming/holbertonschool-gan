@@ -11,6 +11,8 @@ def main():
     # Load MNIST dataset from the specified location
     mnist_data = tf.keras.utils.get_file('MNIST.npz', '../data/MNIST.npz')
 
+    (train_images, _), (_, _) = keras.datasets.mnist.load_data(path='../data/MNIST.npz')
+
     # Load and preprocess the dataset
     (train_images, _), (_, _) = keras.datasets.mnist.load_data(path=mnist_data)
     train_images = train_images.astype("float32") / 255.0
