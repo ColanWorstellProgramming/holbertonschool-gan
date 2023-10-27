@@ -1,0 +1,128 @@
+{
+    "os": "Linux-5.15.90.1-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "python": "3.10.12",
+    "heartbeatAt": "2023-10-27T04:30:22.830542",
+    "startedAt": "2023-10-27T04:30:22.029032",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/dcgan/models/./ArchitectureVariations.py",
+    "codePathLocal": "ArchitectureVariations.py",
+    "codePath": "dcgan/models/ArchitectureVariations.py",
+    "git": {
+        "remote": "https://github.com/ColanWorstellProgramming/holbertonschool-gan.git",
+        "commit": "2567f29a6ca9f63c13227963f464e1bd06d40fdf"
+    },
+    "email": "cworstellprogramming@gmail.com",
+    "root": "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan",
+    "host": "DESKTOP-PBT39U8",
+    "username": "raideroflife",
+    "executable": "/usr/bin/python3",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 3504.001000000001,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3504.001,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3504.001,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3504.001,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3504.001,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3504.001,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3504.001,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3504.001,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3504.001,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3504.001,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3504.001,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3504.001,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3504.001,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3504.001,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3504.001,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3504.001,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 3504.001,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 1006.853931427002,
+            "used": 20.82721710205078
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 3080 Ti",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3080 Ti",
+            "memory_total": 12884901888
+        }
+    ],
+    "memory": {
+        "total": 31.263931274414062
+    }
+}

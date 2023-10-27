@@ -1,0 +1,46 @@
+Traceback (most recent call last):
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/dcgan/models/./ArchitectureVariations.py", line 185, in <module>
+    main()
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/dcgan/models/./ArchitectureVariations.py", line 174, in main
+    train(train_dataset, EPOCHS)
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/dcgan/models/./ArchitectureVariations.py", line 134, in train
+    gen_loss, disc_loss = train_step(image_batch)
+  File "/home/raideroflife/.local/lib/python3.10/site-packages/tensorflow/python/util/traceback_utils.py", line 153, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/tmp/__autograph_generated_filegb0x5p47.py", line 22, in tf__train_step
+    fake_output = ag__.converted_call(ag__.ld(discriminator), (ag__.ld(generated_images),), dict(training=True), fscope)
+  File "/home/raideroflife/.local/lib/python3.10/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/raideroflife/.local/lib/python3.10/site-packages/keras/engine/input_spec.py", line 298, in assert_input_compatibility
+    raise ValueError(
+ValueError: in user code:
+    File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/dcgan/models/./ArchitectureVariations.py", line 115, in train_step  *
+        fake_output = discriminator(generated_images, training=True)
+    File "/home/raideroflife/.local/lib/python3.10/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler  **
+        raise e.with_traceback(filtered_tb) from None
+    File "/home/raideroflife/.local/lib/python3.10/site-packages/keras/engine/input_spec.py", line 298, in assert_input_compatibility
+        raise ValueError(
+    ValueError: Input 0 of layer "sequential_1" is incompatible with the layer: expected shape=(None, 28, 28, 1), found shape=(64, 112, 112, 1)
+Traceback (most recent call last):
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/dcgan/models/./ArchitectureVariations.py", line 185, in <module>
+    main()
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/dcgan/models/./ArchitectureVariations.py", line 174, in main
+    train(train_dataset, EPOCHS)
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/dcgan/models/./ArchitectureVariations.py", line 134, in train
+    gen_loss, disc_loss = train_step(image_batch)
+  File "/home/raideroflife/.local/lib/python3.10/site-packages/tensorflow/python/util/traceback_utils.py", line 153, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/tmp/__autograph_generated_filegb0x5p47.py", line 22, in tf__train_step
+    fake_output = ag__.converted_call(ag__.ld(discriminator), (ag__.ld(generated_images),), dict(training=True), fscope)
+  File "/home/raideroflife/.local/lib/python3.10/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/raideroflife/.local/lib/python3.10/site-packages/keras/engine/input_spec.py", line 298, in assert_input_compatibility
+    raise ValueError(
+ValueError: in user code:
+    File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/dcgan/models/./ArchitectureVariations.py", line 115, in train_step  *
+        fake_output = discriminator(generated_images, training=True)
+    File "/home/raideroflife/.local/lib/python3.10/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler  **
+        raise e.with_traceback(filtered_tb) from None
+    File "/home/raideroflife/.local/lib/python3.10/site-packages/keras/engine/input_spec.py", line 298, in assert_input_compatibility
+        raise ValueError(
+    ValueError: Input 0 of layer "sequential_1" is incompatible with the layer: expected shape=(None, 28, 28, 1), found shape=(64, 112, 112, 1)
