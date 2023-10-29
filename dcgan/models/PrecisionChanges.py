@@ -22,10 +22,10 @@ def main():
     # Load and preprocess the dataset
     (train_images, train_labels), (_, _) = keras.datasets.mnist.load_data()
 
-    train_images = train_images.reshape(train_images.shape[0], 28, 28, 1).astype("float32")
+    train_images = train_images.reshape(train_images.shape[0], 28, 28, 1).astype("float16")
     train_images = (train_images - 127.5) / 127.5
     BUFFER_SIZE = 60000
-    BATCH_SIZE = 32
+    BATCH_SIZE = 64
 
     train_dataset = tf.data.Dataset.from_tensor_slices(train_images).shuffle(BUFFER_SIZE).batch(BATCH_SIZE)
 
@@ -38,38 +38,26 @@ def main():
 
         model.add(layers.Reshape((7, 7, 256)))
 
-        model.add(layers.Conv2DTranspose(128, (2, 2), strides=(2, 2), padding='same', use_bias=False))
+        model.add(layers.Conv2DTranspose(128, (5, 5), strides=(1, 1), padding='same', use_bias=False))
         model.add(layers.BatchNormalization())
         model.add(layers.LeakyReLU(alpha=0.2))
 
-        model.add(layers.Conv2DTranspose(64, (2, 2), strides=(2, 2), padding='same', use_bias=False))
+        model.add(layers.Conv2DTranspose(64, (5, 5), strides=(2, 2), padding='same', use_bias=False))
         model.add(layers.BatchNormalization())
         model.add(layers.LeakyReLU(alpha=0.2))
 
-        model.add(layers.Conv2DTranspose(32, (2, 2), strides=(1, 1), padding='same', use_bias=False))
-        model.add(layers.BatchNormalization())
-        model.add(layers.LeakyReLU(alpha=0.2))
-
-        model.add(layers.Conv2DTranspose(16, (2, 2), strides=(1, 1), padding='same', use_bias=False))
-        model.add(layers.BatchNormalization())
-        model.add(layers.LeakyReLU(alpha=0.2))
-
-        model.add(layers.Conv2DTranspose(1, (2, 2), strides=(1, 1), padding='same', use_bias=False, activation='tanh'))
+        model.add(layers.Conv2DTranspose(1, (5, 5), strides=(2, 2), padding='same', use_bias=False, activation='tanh'))
 
         return model
 
     def make_discriminator_model():
         model = tf.keras.Sequential()
         model.add(layers.Input(shape=(28, 28, 1)))
-        model.add(layers.Conv2D(64, (2, 2), strides=(2, 2), padding='same'))
+        model.add(layers.Conv2D(64, (5, 5), strides=(2, 2), padding='same'))
         model.add(layers.LeakyReLU(alpha=0.2))
         model.add(layers.Dropout(0.3))
 
-        model.add(layers.Conv2D(128, (2, 2), strides=(2, 2), padding='same'))
-        model.add(layers.LeakyReLU(alpha=0.2))
-        model.add(layers.Dropout(0.3))
-
-        model.add(layers.Conv2D(256, (2, 2), strides=(2, 2), padding='same'))
+        model.add(layers.Conv2D(128, (5, 5), strides=(2, 2), padding='same'))
         model.add(layers.LeakyReLU(alpha=0.2))
         model.add(layers.Dropout(0.3))
 
@@ -92,8 +80,8 @@ def main():
     def generator_loss(fake_output):
         return cross_entropy(tf.ones_like(fake_output), fake_output)
 
-    generator_optimizer = tf.keras.optimizers.RMSprop(learning_rate=5e-4)
-    discriminator_optimizer = tf.keras.optimizers.RMSprop(learning_rate=5e-4)
+    generator_optimizer = tf.keras.optimizers.Adam(1e-4)
+    discriminator_optimizer = tf.keras.optimizers.Adam(1e-4)
 
     EPOCHS = 50
     noise_dim = 100
