@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/advanced_gan/models/./adv_Baseline.py", line 187, in <module>
+    main()
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/advanced_gan/models/./adv_Baseline.py", line 83, in main
+    generator = make_generator_model()
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/advanced_gan/models/./adv_Baseline.py", line 47, in make_generator_model
+    model.add(layers.Dense(4*4*512,input_shape=[noise_dim]))
+NameError: free variable 'noise_dim' referenced before assignment in enclosing scope
+Traceback (most recent call last):
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/advanced_gan/models/./adv_Baseline.py", line 187, in <module>
+    main()
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/advanced_gan/models/./adv_Baseline.py", line 83, in main
+    generator = make_generator_model()
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/advanced_gan/models/./adv_Baseline.py", line 47, in make_generator_model
+    model.add(layers.Dense(4*4*512,input_shape=[noise_dim]))
+NameError: free variable 'noise_dim' referenced before assignment in enclosing scope

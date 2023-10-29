@@ -22,7 +22,7 @@ def main():
     """
 
     path_arts = []
-    train_path_arts = '../data/imgs/'
+    train_path_arts = '/content/drive/My Drive/imgs/'
     for path in os.listdir(train_path_arts):
         if '.jpg' in path:
             path_arts.append(os.path.join(train_path_arts, path))
@@ -40,6 +40,11 @@ def main():
 
     BUFFER_SIZE = 60000
     BATCH_SIZE = 256
+    EPOCHS = 25
+    noise_dim = 100
+    num_examples_to_generate = 16
+
+    train_dataset = tf.data.Dataset.from_tensor_slices(train_data).shuffle(BUFFER_SIZE).batch(BATCH_SIZE)
 
     def make_generator_model():
         model = tf.keras.Sequential()
@@ -97,10 +102,6 @@ def main():
     generator_optimizer = tf.keras.optimizers.Adam(1e-4)
     discriminator_optimizer = tf.keras.optimizers.Adam(1e-4)
 
-    EPOCHS = 25
-    noise_dim = 100
-    num_examples_to_generate = 16
-
     seed = tf.random.normal([num_examples_to_generate, noise_dim])
 
     # Set up WandB for experiment tracking
@@ -146,7 +147,7 @@ def main():
             generate_and_log_images(generator, epoch + 1, seed)
 
             # Log generator and discriminator loss to WandB
-            wandb.log({"generator_loss": gen_loss, "discriminator_loss": disc_loss, "Epoch ": epoch + 1, "Time ": time.time() - start})
+            wandb.log({"generator_loss": avg_gen_loss, "discriminator_loss": avg_disc_loss, "Epoch ": epoch + 1, "Time ": time.time() - start})
 
 
     # Set up the folder for saving images
@@ -164,7 +165,7 @@ def main():
 
         for i in range(predictions.shape[0]):
             plt.subplot(4, 4, i + 1)
-            plt.imshow(predictions[i, :, :, 0] * 127.5 + 127.5, cmap='gray')
+            plt.imshow(predictions[i, :, :, :])
             plt.axis('off')
 
         save_path = os.path.join(custom_folder_name, f'image_at_epoch_{epoch:04d}.png')

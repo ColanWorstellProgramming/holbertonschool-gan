@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/advanced_gan/models/./adv_Arch_local.py", line 203, in <module>
+    main()
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/advanced_gan/models/./adv_Arch_local.py", line 26, in main
+    for path in os.listdir(train_path_arts):
+FileNotFoundError: [Errno 2] No such file or directory: '.../data/imgs/'
+Traceback (most recent call last):
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/advanced_gan/models/./adv_Arch_local.py", line 203, in <module>
+    main()
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/advanced_gan/models/./adv_Arch_local.py", line 26, in main
+    for path in os.listdir(train_path_arts):
+FileNotFoundError: [Errno 2] No such file or directory: '.../data/imgs/'

@@ -1,0 +1,7 @@
+/home/raideroflife/.local/lib/python3.10/site-packages/keras/backend.py:5703: UserWarning: "`binary_crossentropy` received `from_logits=True`, but the `output` argument was produced by a Sigmoid activation and thus does not represent logits. Was this intended?
+  output, from_logits = _get_logits(
+Epoch 1: Generator Loss: 0.12442240118980408, Discriminator Loss: 6.219515323638916, Time: 374.89371275901794
+Epoch 2: Generator Loss: 0.045119281858205795, Discriminator Loss: 6.100194931030273, Time: 378.13733315467834
+Epoch 3: Generator Loss: 0.04665228724479675, Discriminator Loss: 5.301339626312256, Time: 385.8052818775177
+Epoch 4: Generator Loss: 0.11519353836774826, Discriminator Loss: 4.71466588973999, Time: 380.26947832107544
+Epoch 5: Generator Loss: 0.17991268634796143, Discriminator Loss: 6.3295817375183105, Time: 382.350150346756
