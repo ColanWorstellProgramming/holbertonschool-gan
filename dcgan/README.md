@@ -29,7 +29,7 @@ Architecture Variations
 Hyperparameter tuning
 
     Data
-
+        https://api.wandb.ai/links/colan_worstell/16hm0pdi
 
     Notes
 
@@ -55,8 +55,8 @@ Precision Changes
         Switching from Float32 to Float16
         Starting with Baseline parameters as it has preformed best visually so far.
 
+        Preforming on par with base model at around epoch 8 if not a bit better.
+        Preformance at end looks much better and I am seeing constant improvement throughout all 25 epochs
 
-
-
-After each experiment, write down your observations regarding model convergence, training time, image quality, and other relevant factors
-Reflect on the challenges and insights gained from each experiment
+        Image quailty is much better at the end
+        Training time stays consistant throughout training

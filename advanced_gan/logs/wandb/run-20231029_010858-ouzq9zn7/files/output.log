@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/advanced_gan/models/./adv_Baseline.py", line 45, in <module>
+    main()
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/advanced_gan/models/./adv_Baseline.py", line 32, in main
+    images = [np.array((Image.open(path)).resize((128,128))) for path in new_path]
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/advanced_gan/models/./adv_Baseline.py", line 32, in <listcomp>
+    images = [np.array((Image.open(path)).resize((128,128))) for path in new_path]
+  File "/home/raideroflife/.local/lib/python3.10/site-packages/PIL/Image.py", line 3236, in open
+    fp = builtins.open(filename, "rb")
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/advanced_gan/models/./adv_Baseline.py", line 45, in <module>
+    main()
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/advanced_gan/models/./adv_Baseline.py", line 32, in main
+    images = [np.array((Image.open(path)).resize((128,128))) for path in new_path]
+  File "/mnt/c/Users/colan/Desktop/School/Local/ML/holbertonschool-machine_learning/unsupervised_learning/holbertonschool-gan/advanced_gan/models/./adv_Baseline.py", line 32, in <listcomp>
+    images = [np.array((Image.open(path)).resize((128,128))) for path in new_path]
+  File "/home/raideroflife/.local/lib/python3.10/site-packages/PIL/Image.py", line 3236, in open
+    fp = builtins.open(filename, "rb")
+KeyboardInterrupt
