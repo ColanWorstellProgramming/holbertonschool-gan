@@ -32,27 +32,63 @@ Baseline DCGAN
 Architecture Variations
 
     Data
-
+        https://api.wandb.ai/links/colan_worstell/8z4f97j4
 
     Notes
         Batch Size: 256
         Epochs: 50
         Noise_dim: 100
         Kernal: 8
-        Strides: 1
+        Strides: 1-2
         Optimizer: adam
         Learning Rate: 1e-5
 
-        My goal here was to change the stride to a smaller size so I have less square shapes and pixilation in the image, so I adjusted the archietecture.
-        I've also decided on a smaller learning rate as well as a higher epoch count
+        My goal here was to change the structure to use a bigger filter size so I adjusted the strides to 1 to compensate for the shapes.
+        I've also decided on a smaller learning rate as well as a higher epoch count.
+
+        The results look much better, I managed in one run to generate the shape of a person but wasn't able to save the results due to an error
+        in my wandb code. A seperate run produced an interesting shadowy image. This run definently worked much better and had clearer image quality.
 
 
 Hyperparameter tuning
 
     Data
+        https://api.wandb.ai/links/colan_worstell/fv7t9zc5
+
+    Notes
+        Batch Size: 64
+        Epochs: 100
+        Noise_dim: 50
+        Kernal: 4
+        Strides: 2
+        Optimizer: adam
+        Learning Rate: 1e-4
+
+        I started with the Architecture Variations experiment as a base since it preformed better. This experement was extremely interesting.
+        Instead of the model following a specific path, it generated very randomly different images, quite a few of them looked like real abstract images,
+        some of them were just colors, so it seemed to work better in some cases while being pretty jumpy. I think the smaller batch size is the cause for this
+        and potentially the learning rate from what I can tell. I also think the kernal size has something to do with it. I'm happy I ran this experiment as it was
+        pretty interesting to see big changes in my output. The images all were very "gridy" as well, I think because I used a much larger kernal size.
+
+        Generator and discrimenator loss did very well as well and did as expected.
+
+
+
+Mixed Experiment - For Fun Not Required
+
+    Data
 
 
     Notes
+        Batch Size: 128
+        Epochs: 100
+        Noise_dim: 100
+        Kernal: 8
+        Strides: 1-2
+        Optimizer: adam
+        Learning Rate: 1e-4
+
+        I wanted to combine all three experiments to see if I could get pretty results!
 
 
 Transfer of Knowledge

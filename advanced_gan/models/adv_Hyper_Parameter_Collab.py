@@ -39,9 +39,9 @@ def main():
     train_data=images
 
     BUFFER_SIZE = 60000
-    BATCH_SIZE = 256
-    EPOCHS = 50
-    noise_dim = 100
+    BATCH_SIZE = 64
+    EPOCHS = 100
+    noise_dim = 50
     num_examples_to_generate = 16
 
     train_dataset = tf.data.Dataset.from_tensor_slices(train_data).shuffle(BUFFER_SIZE).batch(BATCH_SIZE)
@@ -106,13 +106,13 @@ def main():
     def generator_loss(fake_output):
         return cross_entropy(tf.ones_like(fake_output), fake_output)
 
-    generator_optimizer = tf.keras.optimizers.Adam(1e-5)
-    discriminator_optimizer = tf.keras.optimizers.Adam(1e-5)
+    generator_optimizer = tf.keras.optimizers.Adam(1e-4)
+    discriminator_optimizer = tf.keras.optimizers.Adam(1e-4)
 
     seed = tf.random.normal([num_examples_to_generate, noise_dim])
 
     # Set up WandB for experiment tracking
-    wandb.run.name = 'Advanced_DCGAN_Experiment'
+    wandb.run.name = 'Advanced_DCGAN_Experiment_Hyper'
 
     @tf.function
     def train_step(images):

@@ -1972,3 +1972,11 @@
 2023-10-29 03:15:30,292 DEBUG   SenderThread:5173 [sender.py:send():380] send: stats
 2023-10-29 03:15:33,293 DEBUG   HandlerThread:5173 [handler.py:handle_request():146] handle_request: status_report
 2023-10-29 03:15:38,294 DEBUG   HandlerThread:5173 [handler.py:handle_request():146] handle_request: status_report
+2023-10-29 03:15:43,295 DEBUG   HandlerThread:5173 [handler.py:handle_request():146] handle_request: status_report
+2023-10-29 03:15:48,296 DEBUG   HandlerThread:5173 [handler.py:handle_request():146] handle_request: status_report
+2023-10-29 03:15:53,298 DEBUG   HandlerThread:5173 [handler.py:handle_request():146] handle_request: status_report
+2023-10-29 03:15:54,472 INFO    cpu       :5173 [interfaces.py:monitor():140] Process cpu has exited.
+2023-10-29 03:15:54,472 INFO    memory    :5173 [interfaces.py:monitor():140] Process proc.memory.rssMB has exited.
+2023-10-29 03:15:54,473 DEBUG   SystemMonitor:5173 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2023-10-29 03:15:54,477 DEBUG   SystemMonitor:5173 [system_monitor.py:_start():183] Publishing last batch of metrics
+2023-10-29 03:15:54,480 DEBUG   SenderThread:5173 [sender.py:send():380] send: stats

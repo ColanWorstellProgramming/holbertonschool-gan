@@ -39,9 +39,9 @@ def main():
     train_data=images
 
     BUFFER_SIZE = 60000
-    BATCH_SIZE = 256
-    EPOCHS = 50
-    noise_dim = 100
+    BATCH_SIZE = 128
+    EPOCHS = 100
+    noise_dim = 50
     num_examples_to_generate = 16
 
     train_dataset = tf.data.Dataset.from_tensor_slices(train_data).shuffle(BUFFER_SIZE).batch(BATCH_SIZE)
@@ -51,10 +51,10 @@ def main():
 
         model.add(layers.Dense(4*4*512,input_shape=[noise_dim]))
         model.add(layers.Reshape([4,4,512]))
-        model.add(layers.Conv2DTranspose(2048, kernel_size=8, strides=1, padding="same"))
+        model.add(layers.Conv2DTranspose(2048, kernel_size=4, strides=2, padding="same"))
         model.add(layers.LeakyReLU(alpha=0.2))
         model.add(layers.BatchNormalization())
-        model.add(layers.Conv2DTranspose(1024, kernel_size=8, strides=1, padding="same"))
+        model.add(layers.Conv2DTranspose(1024, kernel_size=4, strides=2, padding="same"))
         model.add(layers.LeakyReLU(alpha=0.2))
         model.add(layers.BatchNormalization())
         model.add(layers.Conv2DTranspose(512, kernel_size=4, strides=2, padding="same"))
@@ -63,17 +63,10 @@ def main():
         model.add(layers.Conv2DTranspose(256, kernel_size=4, strides=2, padding="same"))
         model.add(layers.LeakyReLU(alpha=0.2))
         model.add(layers.BatchNormalization())
-        model.add(layers.Conv2DTranspose(128, kernel_size=4, strides=2, padding="same"))
-        model.add(layers.LeakyReLU(alpha=0.2))
-        model.add(layers.BatchNormalization())
-        model.add(layers.Conv2DTranspose(64, kernel_size=4, strides=2, padding="same"))
-        model.add(layers.LeakyReLU(alpha=0.2))
-        model.add(layers.BatchNormalization())
-        model.add(layers.Conv2DTranspose(3, kernel_size=8, strides=2, padding="same",
+        model.add(layers.Conv2DTranspose(3, kernel_size=4, strides=2, padding="same",
                                         activation='sigmoid'))
 
         return model
-
 
     def make_discriminator_model():
         model = tf.keras.Sequential()
@@ -106,13 +99,13 @@ def main():
     def generator_loss(fake_output):
         return cross_entropy(tf.ones_like(fake_output), fake_output)
 
-    generator_optimizer = tf.keras.optimizers.Adam(1e-5)
-    discriminator_optimizer = tf.keras.optimizers.Adam(1e-5)
+    generator_optimizer = tf.keras.optimizers.Adam(1e-4)
+    discriminator_optimizer = tf.keras.optimizers.Adam(1e-4)
 
     seed = tf.random.normal([num_examples_to_generate, noise_dim])
 
     # Set up WandB for experiment tracking
-    wandb.run.name = 'Advanced_DCGAN_Experiment'
+    wandb.run.name = 'Advanced_DCGAN_Experiment_For_Fun'
 
     @tf.function
     def train_step(images):
@@ -151,7 +144,7 @@ def main():
             print('Epoch {}: Generator Loss: {}, Discriminator Loss: {}, Time: {}'.format(epoch + 1, avg_gen_loss, avg_disc_loss, time.time() - start))
 
             # Produce images for WandB
-            generate_and_log_images(generator, epoch + 1, seed)
+            generate_and_log_images(generator, seed)
 
             # Log generator and discriminator loss to WandB
             wandb.log({"generator_loss": avg_gen_loss, "discriminator_loss": avg_disc_loss, "Epoch ": epoch + 1, "Time ": time.time() - start})
@@ -165,21 +158,19 @@ def main():
     os.makedirs(custom_folder_name, exist_ok=True)
 
     # Modify the save path in the generate_and_log_images function
-    def generate_and_log_images(model, epoch, test_input):
+    def generate_and_log_images(model, test_input):
         predictions = model(test_input, training=False)
-
-        fig = plt.figure(figsize=(4, 4))
 
         for i in range(predictions.shape[0]):
             plt.subplot(4, 4, i + 1)
             plt.imshow(predictions[i, :, :, :])
             plt.axis('off')
 
-        save_path = os.path.join(custom_folder_name, f'image_at_epoch_{epoch:04d}.png')
-        plt.savefig(save_path)
+        plt.savefig("generated_image.png")
 
         # Log images to WandB
-        wandb.log({"generated_images": [wandb.Image(plt)]})
+        wandb.log({"generated_images": [wandb.Image("generated_image.png")]})
+
 
     train(train_dataset, EPOCHS)
 
