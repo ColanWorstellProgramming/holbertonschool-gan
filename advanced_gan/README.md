@@ -1,5 +1,3 @@
-WandB Reports
-
 NOTE :: All Logs are saved on collab, not locally, takes way too long to run locally
 
 Baseline DCGAN
@@ -93,3 +91,8 @@ Mixed Experiment - For Fun Not Required
 
 Transfer of Knowledge
 
+    The DCGAN MNIST was a good way to get into understanding gans models. I had a base model that I could just do small edits to to see how they effect the simple number
+    images we were working with. Now, on my more complicated abstract art model, I had good ideas of what to tweak to get the specific results that I wanted. Which actually came
+    into play, and I did try some of what worked out during the first project. I decided to use a similar archetecture, I feel like I liked using more layers than less as I saw
+    better results. I didn't have the best results from my initial experiments, but my baseline was good. So I knew to start with that and what not to do from after that point on because
+    of my other expeirments. It was nice to have a fall back while working on the advancded task to a simpler model.

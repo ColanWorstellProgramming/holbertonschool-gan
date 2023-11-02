@@ -1,5 +1,3 @@
-WandB Reports
-
 Baseline DCGAN
 
     Data
